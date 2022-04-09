@@ -1,5 +1,9 @@
 package Praktikum9;
 
+/**
+ * Class yang mengimplementasikan quick sort
+ */
+
 public class ArrayIns {
     private double[] theArray; // ref to array theArray
     private int nElems; // number of data items

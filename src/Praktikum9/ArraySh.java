@@ -1,5 +1,9 @@
 package Praktikum9;
 
+/**
+ * class yang mengimplementasikan shell sort
+ */
+
 public class ArraySh {
     private double[] theArray; // ref to array theArray
     private int nElems; // number of data items

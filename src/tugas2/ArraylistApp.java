@@ -39,7 +39,7 @@ public class ArraylistApp {
         /**
          * untuk nelihat method isEmpty
          */
-        System.out.println(arr.isEmpty());
+        // System.out.println(arr.isEmpty());
 
         /**
          * untuk melihat method set

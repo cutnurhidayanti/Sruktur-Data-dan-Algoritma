@@ -13,18 +13,12 @@ public class MergeSortApp {
         arr = new Darray(maxSize); // create the array
         TimeInterval ti = new TimeInterval();
 
-        arr.insert(64); // insert items
-        arr.insert(21);
-        arr.insert(33);
-        arr.insert(70);
-        arr.insert(12);
-        arr.insert(85);
-        arr.insert(44);
-        arr.insert(3);
-        arr.insert(99);
-        arr.insert(0);
-        arr.insert(108);
-        arr.insert(36);
+        for (int i = 0; i < arr.size(); i++) {
+            int data;
+            data = (int) (Math.random() *100);
+            arr.insert(data); // insert items
+        }
+
         System.out.println("Data awal");
         arr.display(); // display items
 

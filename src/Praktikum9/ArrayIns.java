@@ -4,6 +4,8 @@ package Praktikum9;
  * Class yang mengimplementasikan quick sort
  */
 
+ import Praktikum9.Praktikum2.TimeInterval;
+
 public class ArrayIns {
     private double[] theArray; // ref to array theArray
     private int nElems; // number of data items
@@ -74,17 +76,25 @@ public class ArrayIns {
     } // end swap
 
     public static void main(String[] ar) {
-        int maxSize = 16; // array size
-        ArrayIns arr;
-        arr = new ArrayIns(maxSize); // create array
+        int maxSize = 10000000; // array size
+        ArrayIns arr = new ArrayIns(maxSize); // create array
+        TimeInterval ti = new TimeInterval();
+
         for (int j = 0; j < maxSize; j++) // fill array with
         { // random numbers
             double n = (int) (java.lang.Math.random() * 99);
             arr.insert(n);
         }
+
         arr.display(); // display items
+
+        ti.startTiming();
         arr.quickSort(); // quicksort them
+        ti.endTiming();
+
         arr.display(); // display them again
+
+        System.out.println("waktu yang dibutuhkan dengan menggunakan metode quicksort adalah : "+ti.getElapsedTime()+" ms");
     }
 
 }

@@ -4,6 +4,8 @@ package Praktikum9;
  * class yang mengimplementasikan shell sort
  */
 
+ import Praktikum9.Praktikum2.TimeInterval;
+
 public class ArraySh {
     private double[] theArray; // ref to array theArray
     private int nElems; // number of data items
@@ -33,8 +35,9 @@ public class ArraySh {
         double temp;
         int h = 1; // find initial value of h
 
-        while (h <= nElems / 3)
+        while (h <= nElems / 3){
             h = h * 3 + 1; // (1, 4, 13, 40, 121, ...)
+        }
 
         while (h > 0) // decreasing h, until h=1
         {
@@ -54,17 +57,24 @@ public class ArraySh {
     } // end shellSort()
 
     public static void main(String[] args) {
-        int maxSize = 10; // array size
-        ArraySh arr;
-        arr = new ArraySh(maxSize); // create the array
+
+        int maxSize = 1000000; // array size
+        ArraySh arr = new ArraySh(maxSize); // create the array
+
+        TimeInterval ti = new TimeInterval();
+
         for (int j = 0; j < maxSize; j++) // fill array with
         { // random numbers
             double n = (int) (java.lang.Math.random() * 99);
             arr.insert(n);
         }
         arr.display(); // display unsorted array
+
+        ti.startTiming();
         arr.shellSort(); // shell sort the array
+        ti.endTiming();
 
         arr.display(); // display sorted array
+        System.out.println("waktu yang diperlukan untuk melakukan sorting dengan ShellSort adalah : "+ti.getElapsedTime()+" ms");
     }
 }

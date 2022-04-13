@@ -1,11 +1,10 @@
 package Praktikum9;
 
-// import Praktikum2.ArrayTakTerurut;
 import Praktikum9.Praktikum2.Arrays;
 
 public class Darray extends Arrays {
     private double[] a; // ref to array a
-    private int nElems; // number of data items
+    private static int nElems; // number of data items
 
     /**
      * Constructor for objects of class ArrayTakTerurut
@@ -32,7 +31,7 @@ public class Darray extends Arrays {
         int i = 0;
 
         while (i < n) {
-            if (a[i] == searchKey){
+            if (a[i] == searchKey) {
                 return i;
             }
             i++;
@@ -51,11 +50,11 @@ public class Darray extends Arrays {
     public void delete(double value) {
         int posisiIndeks = this.sequentSearch(value);
 
-        if (posisiIndeks == nElems){
+        if (posisiIndeks == nElems) {
             System.out.println("Posisi data yang dihapus tidak ditemukan.");
-        }else {
+        } else {
             // hapus data dengan menurunkan semua data
-            for (int i = posisiIndeks; i < nElems; i++){
+            for (int i = posisiIndeks; i < nElems; i++) {
                 a[posisiIndeks] = a[posisiIndeks + 1];
             }
             nElems--;
@@ -71,9 +70,9 @@ public class Darray extends Arrays {
 
     // method rekursif mergesort yang membagi dan merge
     private void recMergeSort(double[] workSpace, int lowerBound, int upperBound) {
-        if (lowerBound == upperBound){// if range is 1,
+        if (lowerBound == upperBound) {// if range is 1,
             return; // no use sorting
-        }else {
+        } else {
             // find midpoint
             int mid = (lowerBound + upperBound) / 2;
 
@@ -89,30 +88,30 @@ public class Darray extends Arrays {
     } // end recMergeSort
       // proses merge
 
-    private void merge(double[] workSpace, int lowPtr,int highPtr, int upperBound) {
+    private void merge(double[] workSpace, int lowPtr, int highPtr, int upperBound) {
         int j = 0; // workspace index
         int lowerBound = lowPtr;
         int mid = highPtr - 1;
         int n = upperBound - lowerBound + 1; // # of items
 
-        while (lowPtr <= mid && highPtr <= upperBound){
-            if (a[lowPtr] < a[highPtr]){
+        while (lowPtr <= mid && highPtr <= upperBound) {
+            if (a[lowPtr] < a[highPtr]) {
                 workSpace[j++] = a[lowPtr++];
-            }else{
+            } else {
                 workSpace[j++] = a[highPtr++];
             }
         }
 
-        while (lowPtr <= mid){
+        while (lowPtr <= mid) {
             workSpace[j++] = a[lowPtr++];
         }
 
-        while (highPtr <= upperBound){
+        while (highPtr <= upperBound) {
             workSpace[j++] = a[highPtr++];
 
         }
 
-        for (j = 0; j < n; j++){
+        for (j = 0; j < n; j++) {
             a[lowerBound + j] = workSpace[j];
         }
     } // end merge()

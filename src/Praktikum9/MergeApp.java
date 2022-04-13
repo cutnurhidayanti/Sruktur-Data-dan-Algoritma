@@ -10,9 +10,7 @@ public class MergeApp {
     }
 
     // merge A and B into C
-    public static void merge(int[] arrayA, int sizeA,
-            int[] arrayB, int sizeB,
-            int[] arrayC) {
+    public static void merge(int[] arrayA, int sizeA, int[] arrayB, int sizeB, int[] arrayC) {
         int aDex = 0, bDex = 0, cDex = 0;
         while (aDex < sizeA && bDex < sizeB) // neither array empty
         {

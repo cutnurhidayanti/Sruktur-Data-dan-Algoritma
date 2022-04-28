@@ -1,13 +1,15 @@
-package tugas3.SortAlgoritm;
+package tugas3.SortAlgoritm.simpleSort;
 
 public class Arrays {
 
     private int[] a;
     private int n;
+    private int elemn;
 
     public Arrays(int max) {
-        a = new int[max];
-        n = 0;
+        this.a = new int[max];
+        this.n = 0;
+        this.elemn = 0;
     }
 
     public int size() {
@@ -37,6 +39,7 @@ public class Arrays {
         for (out = n - 1; out > 1; out--) {
             for (in = 0; in < out; in++) {
                 if (a[in] > a[in + 1]) {
+                    compareCount();
                     swap(in, in + 1);
                 }
             }
@@ -50,6 +53,7 @@ public class Arrays {
             min = out;
             for (in = out + 1; in < n; in++) {
                 if (a[in] < a[min]) {
+                    compareCount();
                     min = in;
                 }
             }
@@ -65,6 +69,7 @@ public class Arrays {
             in = out;
 
             while (in > 0 && a[in - 1] >= temp) {
+                compareCount();
                 a[in] = a[in - 1];
                 --in;
             }
@@ -96,6 +101,11 @@ public class Arrays {
                 n--;
             }
         }
+    }
+
+    public int compareCount() {
+        elemn++;
+        return elemn;
     }
 
 }

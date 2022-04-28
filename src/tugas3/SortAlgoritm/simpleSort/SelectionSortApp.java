@@ -1,12 +1,12 @@
-package tugas3.SortAlgoritm;
+package tugas3.SortAlgoritm.simpleSort;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import tugas3.kebutuhan.TimeInterval;
+import tugas3.Reqiurement.TimeInterval;
 
-public class InserSortApp {
+public class SelectionSortApp {
     public static void main(String[] args) throws Exception {
 
         Arrays arr = new Arrays(100);
@@ -32,13 +32,14 @@ public class InserSortApp {
 
         // menghitung waktu pengurutan
         ti.startTiming();
-        arr.insertionSort();
+        arr.selectionSort();
         ti.endTiming();
 
         // Mampilkan data
         System.out.println("data setelah diurutkan");
         arr.display();
-        System.out.println("\n<=========< Kompleksitas waktu InsertionSort >=========>");
+        System.out.println("\n<=========< Kompleksitas waktu SelectionSort >=========>");
         System.out.printf("waktu pengurutan: " + ti.getElapsedTime() + " ms \n");
+        System.out.printf("perbandingan dilakukan sebanyak: " + arr.compareCount() + " kali \n");
     }
 }

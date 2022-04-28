@@ -1,18 +1,20 @@
-package tugas3.SortAlgoritm;
+package tugas3.SortAlgoritm.advanceSort;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import tugas3.kebutuhan.TimeInterval;
+import tugas3.Reqiurement.TimeInterval;
 
 public class QuickSort {
     private static int arr[];
     private int n;
+    private static int elemn;
 
     public QuickSort(int size) {
         this.arr = new int[size];
         this.n = 0;
+        this.elemn = 0;
     }
 
     // method to find the partition position
@@ -28,6 +30,7 @@ public class QuickSort {
         // compare each element with pivot
         for (int j = low; j < high; j++) {
             if (array[j] <= pivot) {
+                compareCount();
 
                 // if element smaller than pivot is found
                 // swap it with the greatr element pointed by i
@@ -84,6 +87,11 @@ public class QuickSort {
             System.out.println(arr[i]);
         }
     }
+
+    public static int compareCount() {
+        elemn++;
+        return elemn;
+    }
 }
 
 // Main class
@@ -123,5 +131,6 @@ class Main {
         obj.display();
         System.out.println("\n<=========< Kompleksitas waktu Quicksort>=========>");
         System.out.printf("waktu pengurutan: " + ti.getElapsedTime() + " ms \n");
+        System.out.printf("perbandingan dilakukan sebanyak: " + obj.compareCount() + " kali \n");
     }
 }

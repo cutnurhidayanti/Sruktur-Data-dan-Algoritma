@@ -1,11 +1,8 @@
-package tugas3.kebutuhan;
+package tugas3.Reqiurement;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.FileWriter;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class RandomCode {
 

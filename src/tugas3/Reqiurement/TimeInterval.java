@@ -1,4 +1,4 @@
-package tugas3.kebutuhan;
+package tugas3.Reqiurement;
 
 public class TimeInterval {
     private long startTime, endTime;

@@ -1,14 +1,15 @@
-package tugas3.SortAlgoritm;
+package tugas3.SortAlgoritm.advanceSort;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import tugas3.kebutuhan.TimeInterval;
+import tugas3.Reqiurement.TimeInterval;
 
 public class MergeSort {
     private static int arr[];
     private int n;
+    private int elemn;
 
     public MergeSort(int size) {
         this.arr = new int[size];
@@ -39,6 +40,7 @@ public class MergeSort {
         // Until we reach either end of either L or M, pick larger among
         // elements L and M and place them in the correct position at A[p..r]
         while (i < n1 && j < n2) {
+            compareCount();
             if (L[i] <= M[j]) {
                 arr[k] = L[i];
                 i++;
@@ -67,7 +69,6 @@ public class MergeSort {
     // Divide the array into two subarrays, sort them and merge them
     void mergeSort(int arr[], int l, int r) {
         if (l < r) {
-
             // m is the point where the array is divided into two subarrays
             int m = (l + r) / 2;
 
@@ -89,6 +90,11 @@ public class MergeSort {
     public void insert(int number) {
         arr[n] = number;
         n++;
+    }
+
+    public int compareCount() {
+        elemn++;
+        return elemn;
     }
 
     // Driver program
@@ -124,5 +130,6 @@ public class MergeSort {
         obj.display();
         System.out.println("\n<=========< Kompleksitas waktu Mergesort>=========>");
         System.out.printf("waktu pengurutan: " + ti.getElapsedTime() + " ms \n");
+        System.out.printf("perbandingan dilakukan sebanyak: " + obj.compareCount() + " kali \n");
     }
 }

@@ -1,4 +1,4 @@
-package tugas3.SortAlgoritm;
+package tugas3.SortAlgoritm.advanceSort;
 
 // Shell sort in Java programming
 
@@ -7,12 +7,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import tugas3.kebutuhan.TimeInterval;
+import tugas3.Reqiurement.TimeInterval;
 
 // Shell sort
 class ShellSort {
     private static int arr[];
     private int n;
+    private int elemn;
 
     public ShellSort(int size) {
         this.arr = new int[size];
@@ -23,9 +24,11 @@ class ShellSort {
     void shellSort(int array[], int n) {
         for (int interval = n / 2; interval > 0; interval /= 2) {
             for (int i = interval; i < n; i += 1) {
+                compareCount();
                 int temp = array[i];
                 int j;
                 for (j = i; j >= interval && array[j - interval] > temp; j -= interval) {
+                    compareCount();
                     array[j] = array[j - interval];
                 }
                 array[j] = temp;
@@ -50,6 +53,11 @@ class ShellSort {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
+    }
+
+    public int compareCount() {
+        elemn++;
+        return elemn;
     }
 
     // Driver code
@@ -87,5 +95,6 @@ class ShellSort {
         obj.display();
         System.out.println("\n<=========< Kompleksitas waktu Shellsort>=========>");
         System.out.printf("waktu pengurutan: " + ti.getElapsedTime() + " ms \n");
+        System.out.printf("perbandingan dilakukan sebanyak: " + obj.compareCount() + " kali \n");
     }
 }
